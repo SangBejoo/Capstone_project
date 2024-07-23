@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Color Tracking</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/color-tracking.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/color-picker.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/range-slider.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/webflow.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/them.css') }}">    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/track.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pickColor.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/slideRange.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/colorSeeker.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Oswald:200,300,400,500,600,700","Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Playfair Display:regular,700,900"]
+            }
+        });
+    </script>
+
+    <link href="{{ url_for('static', filename='images/Logo.jpg') }}" rel="shortcut icon" type="image/x-icon">
+    <link href="{{ url_for('static', filename='images/Logo.jpg') }}" rel="apple-touch-icon">
+
+    <style>
+        .form-group .form-control {
+            position: relative;
+            z-index: 2;
+            padding: 12px;
+            width: 100%;
+            box-shadow: none;
+        }
+        .form-group .form-control:focus, .form-group .form-control:active {
+            box-shadow: none;
+            outline: none;
+        }
+        .form-group .form-label {
+            color: #222222;
+            font-size: 14px;
+            min-height: 42px;
+            text-align: left;
+            position: absolute;
+            top: 14px;
+            left: 10px;
+            right: 0;
+            transition: 0.3s;
+            z-index: 3;
+        }
+        .form-group.focus:after {
+            opacity: 1;
+            width: 100%;
+        }
+        .form-group.focus .form-label, .form-group.filled .form-label {
+            top: -20px;
+            font-size: 12px;
+            left: 0px;
+            color: #5da8ef;
+        }
+        .container {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.11);
+            padding: 20px;
+        }
+        .my-chatbox {
+            position: fixed;
+            bottom: 20px; /* Adjust as needed */
+            right: 20px;  /* Adjust as needed */
+            z-index: 1000; /* Ensure it stays on top */
+        }
+    </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+      <div class="navbar w-nav" data-animation="default" data-collapse="medium" data-duration="400" id="top">
+          <header class="container in-nav w-container">
+              <a class="w-nav-brand" href="{{ url_for('index') }}">
+                  <img alt="Color" class="logo" src="{{ url_for('static', filename='images/Logo.jpg') }}" width="50">
+              </a>
+              <nav class="nav-menu w-clearfix w-nav-menu" role="navigation">
+                  <a class="nav-link w-nav-link" href="#about">About</a>
+                  <a class="nav-link w-nav-link" href="#Images">Images</a>
+                  <a class="nav-link w-nav-link" href="#color">ColorPicker</a>
+                  <a class="nav-link w-nav-link" href="{{ url_for('realtime') }}">RealTime</a>
+                </nav>
+              <div class="menu-button w-nav-button">
+                  <div class="w-icon-nav-menu"></div>
+              </div>
+          </header>
+      </div>
+  </header>
+
+  <!-- Main Section -->
+  <section class="section">
+      <main class="container w-container">
+          <div class="hero-section w-clearfix">
+              <div class="w-row" id="about"></div>
+              <img alt="chroma" class="chroma" data-ix="fade-in-on-load"
+                  sizes="(max-width: 479px) 81vw, (max-width: 767px) 78vw, (max-width: 991px) 80vw, 73vw"
+                  src="{{ url_for('static', filename='images/color.jpg') }}"
+                  srcset="{{ url_for('static', filename='images/color.jpg') }} 500w, {{ url_for('static', filename='images/color.jpg') }} 1056w">
+              <div class="hold-slide-content">
+                  <div class="text-block" data-ix="float-in-on-load"></div>
+                  <h1 class="heading" data-ix="float-in-on-load-2">What Is Color Blindness</h1>
+                  <p class="paragraph" data-ix="float-in-on-load-3">Color blindness, also known as color vision
+                      deficiency, is the inability or decreased ability to see color or perceive color differences,
+                      under normal lighting conditions.</p>
+              </div>
+          </div>
+      </main>
+
+      <!-- Quote Section -->
+      <article class="container quote w-container">
+          <p class="quote-text" data-ix="float-in-on-scroll">"The world is full of color. It's just a matter of
+              knowing where to look."</p>
+          <div class="text-block-2" data-ix="float-in-on-scroll-2">David Hockney</div>
+          <div class="middle-line" data-ix="float-in-on-scroll-3"></div>
+      </article>
+
+      <!-- Images Section -->
+      <article class="bg container w-container" id="Images">
+          <div class="heading-box">
+              <div class="small-blue-heading">3 Types Of</div>
+              <h2 class="sub-heading">Color Blindness</h2>
+          </div>
+          <div class="slider w-slider" data-animation="slide" data-duration="500" data-infinite="1">
+              <div class="mask w-slider-mask">
+                  <div class="slide w-slide" data-ix="float-in-on-scroll">
+                      <img alt="color" class="image-2" data-ix="floating" src="{{ url_for('static', filename='images/1.png') }}">
+                  </div>
+                  <div class="slide w-slide" data-ix="float-in-on-scroll-2">
+                      <img alt="color" class="image-2" data-ix="floating-2" src="{{ url_for('static', filename='images/2.png') }}">
+                  </div>
+                  <div class="slide w-slide" data-ix="float-in-on-scroll-3">
+                      <img alt="color" class="image-2" data-ix="floating-3" src="{{ url_for('static', filename='images/3.png') }}">
+                  </div>
+              </div>
+              <div class="arrow w-slider-arrow-left">
+                  <div class="w-icon-slider-left"></div>
+              </div>
+              <div class="arrow w-slider-arrow-right">
+                  <div class="w-icon-slider-right"></div>
+              </div>
+              <div class="w-round w-slider-nav"></div>
+          </div>
+          <div class="middle-line" data-ix="float-in-on-scroll-3"></div>
+      </article>
+
+      <!-- Color Tracker Section -->
+      <main class="container w-container">
+          <article class="both-top-and-bottom container w-container">
+              <div class="w-row" id="color"></div>
+              <div class="heading-box">
+                  <h2 class="sub-heading">Color Tracker</h2>
+              </div>
+              <div class="container mt-2">
+                  <div class="row">
+                      <div class="col-12 offset-lg-1 col-lg-7 col-md-6">
+                          <div class="row">
+                              <div class="col-7">
+                                  <input id="image-selector" type="file">
+                              </div>
+                              <div class="col-5">
+                                  <button id="track-button" class="btn btn-dark float-right">Track color</button>
+                              </div>
+                          </div>
+                          <hr class="m-3">
+                          <div class="row">
+                              <div class="col-12">
+                                  <div class="row">
+                                      <div class="col-7">
+                                          <strong class="ml-3">Image</strong>
+                                      </div>
+                                      <div class="col-5">
+                                          <button id="clear-button" class="btn btn-dark float-right">Clear</button>
+                                      </div>
+                                  </div>
+                                  <div class="col-12 p-0 tooltip" id="image-container">
+                                      <img id="selected-image" class="p-0 col-12" data-ix="fade-in-on-load"
+                                          sizes="(max-width: 479px) 81vw, (max-width: 767px) 78vw, (max-width: 991px) 80vw, 73vw"
+                                          src="{{ url_for('static', filename='images/Logo.jpg') }}" />
+                                      <span class="tooltiptext">Click to pick color from image</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-12 col-lg-4 col-md-6">
+                          <div class="row col-12 d-block p-0 m-0">
+                              <strong class="d-block">Tracking colors</strong>
+                              <div id="color-list" class="row color-list m-0"></div>
+                              <hr class="d-block m-3">
+                          </div>
+
+                          <div class="row">
+                              <div class="col-8">
+                                  <section id="color-picker"></section>
+                                  <div class="p-2">
+                                      <label for="tolerance" class="font-weight-bold">Tolerance:</label>
+                                      <input type="range" id="tolerance" name="tolerance" min="0" max="100"
+                                          value="30" step="1">
+                                      <span class="rangeslider__tooltip" id="range-tooltip"></span>
+                                  </div>
+                              </div>
+                              <div class="col-4">
+                                  <div id="color-picker-selected"></div>
+                                  <button id="add-color-button" class="btn btn-primary">Add color</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </article>
+      </main>
+      
+      <article class="bg container w-container" id="Images">
+        <div class="heading-box">
+            <div class="small-blue-heading">Detect Image</div>
+            <h2 class="sub-heading">Color Detection</h2>
+        </div>
+        <!-- Form untuk upload gambar -->
+        <form action="{{ url_for('predict_color') }}" method="post" enctype="multipart/form-data" id="uploadForm">
+            <label for="file">Choose an image:</label>
+            <input type="file" id="file" name="file" accept="image/*" required>
+            <br><br>
+            <button type="submit" class="btn btn-primary">Detect</button>
+        </form>
+        <h2 id="result"></h2>
+        <!-- Placeholder for displaying uploaded image -->
+        <div id="imageContainer"></div>
+        <h3 id="colorResult"></h3>
+        <div class="middle-line" data-ix="float-in-on-scroll-3"></div>
+    </article>
+    
+    <!-- Contact Section -->
+    <div class="contact-bg">
+        <article class="centered container w-container">
+            <div class="w-row" id="Info"></div>
+            <div class="bottom middle-line" data-ix="float-in-on-scroll"></div>
+            <h2 class="sub-heading" data-ix="float-in-on-scroll-2">Contact Us For More</h2>
+            <p class="text-bottom" data-ix="float-in-on-scroll-2">If you have any questions or would like to learn more about our warehousing services, please don't hesitate to get in touch with us. Our team of experts is always happy to help and can provide you with more information on our pricing, services, and facilities.</p>
+            <div class="form-wrapper w-form">
+                <form class="form w-clearfix" data-ix="float-in-on-scroll-3" data-name="Email Form" id="contact" name="email-form">
+                    <div class="form-group w-clearfix">
+                        <label for="Name">Your Name:</label>
+                        <input class="form-control w-input" data-name="name" id="name" maxlength="256" name="Name" required="required" type="text">
+                    </div>
+                    <div class="form-group w-clearfix">
+                        <label for="Email">Your Email:</label>
+                        <input class="form-control w-input" data-name="Email" id="email" maxlength="256" name="Email" required="required" type="email">
+                    </div>
+                    <div class="form-group w-clearfix">
+                        <label for="Phone">Message</label>
+                        <textarea class="textarea w-input" id="subject" name="subject" placeholder="Write something.." required="required" style="height:200px"></textarea>
+                    </div>
+                    <button class="submit-button w-button" type="submit">Submit</button>
+                </form>
+            </div>
+        </article>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer section">
+        <address class="both-top-and-bottom container w-container">
+            <div class="row w-row">
+                <div class="column-5 w-col w-col-6">
+                    <iframe class="image-3" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63457.40821835646!2d107.0535555!3d-6.2521334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698e5536a17187%3A0x5f258ff12caf8f2b!2sKec.%20Tambun%20Sel.%2C%20Kabupaten%20Bekasi%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1683173171271!5m2!1sid!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <h3 class="heading-2">CA 91932, Istambun<br>Bekasi Planet<br>Samping Jupiter</h3>
+                </div>
+            </div>
+        </address>
+    </div>
+
+    <div class="container">
+        <div class="my-chatbox">
+            <div class="my-chatbox__support">
+                <div class="my-chatbox__header">
+                    <div class="my-chatbox__image--header">
+                        <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                    </div>
+                    <div class="my-chatbox__content--header">
+                        <h4 class="my-chatbox__heading--header">Chat support</h4>
+                        <p class="my-chatbox__description--header">Hi, mau rekomendasi warna apa?</p>
+                    </div>
+                </div>
+                <div class="my-chatbox__messages">
+                    <div></div>
+                </div>
+                <div class="my-chatbox__footer">
+                    <input type="text" placeholder="Write a message...">
+                    <button class="my-chatbox__send--footer my-send__button">Send</button>
+                </div>
+            </div>
+            <div class="my-chatbox__button">
+                <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
+            </div>
+        </div>
+    </div>
+    
+  <footer class="section">
+    <footer class="both-top-and-bottom centered container w-container">
+        <a href="index.html">
+            <label class="footer-logo w-inline-block" data-ix="float-in-on-scroll">
+                <img alt="Logo" src="{{ url_for('static', filename='images/Logo.jpg') }}" width="100">
+            </label>
+        </a>
+    </footer>
+</footer>
+
+<script>
+    $SCRIPT_ROOT = {{ request.script_root|tojson }};
+</script>
+<script>
+    document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        let formData = new FormData();
+        formData.append('file', document.getElementById('file').files[0]);
+        
+        let response = await fetch('/predict_color', {
+            method: 'POST',
+            body: formData
+        });
+        
+        let result = await response.json();
+        
+        document.getElementById('colorResult').textContent = `Predicted Color: ${result.predicted_color}`;
+        
+        let imageContainer = document.getElementById('imageContainer');
+        imageContainer.innerHTML = `<img src="${result.image}" alt="Uploaded Image" style="max-width: 100%;">`;
+    });
+
+    document.querySelector('.my-send__button').addEventListener('click', async () => {
+        const input = document.querySelector('.my-chatbox__footer input');
+        const message = input.value;
+        const response = await fetch('/predict_chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message }),
+        });
+        const result = await response.json();
+        if (result.answer) {
+            const messagesContainer = document.querySelector('.my-chatbox__messages > div');
+            messagesContainer.innerHTML += `<div class="my-messages__item my-messages__item--visitor">${message}</div>`;
+            messagesContainer.innerHTML += `<div class="my-messages__item my-messages__item--support">${result.answer}</div>`;
+            input.value = '';
+        }
+    });
+</script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+<script src="{{ url_for('static', filename='js/slider.js') }}"></script>
+<script src="{{ url_for('static', filename='js/trackColor.js') }}"></script>
+</body>
+</html>

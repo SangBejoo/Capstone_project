@@ -1,0 +1,380 @@
+{
+  "intents": [
+    {
+      "tag": "rekomendasi_warna_putih",
+      "patterns": [
+        "Rekomendasikan warna untuk kulit putih",
+        "Saya memiliki kulit putih, sarankan warna",
+        "Warna apa yang cocok untuk kulit putih?",
+        "Butuh rekomendasi warna untuk kulit putih"
+      ],
+      "responses": [
+        "Cobalah warna pastel seperti off-white, coklat, atau beige untuk tampilan elegan. #F5F5DC, RGB(245, 245, 220)",
+        "Warna pastel lembut seperti baby blue atau lavender juga cocok. #E6E6FA, RGB(230, 230, 250)",
+        "Warna vibrant seperti merah muda atau biru terang bisa membuat penampilan Anda menonjol. #FF69B4, RGB(255, 105, 180)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_sawo_matang",
+      "patterns": [
+        "Rekomendasikan warna untuk kulit sawo matang",
+        "Saya memiliki kulit sawo matang, sarankan warna",
+        "Warna apa yang cocok untuk kulit sawo matang?",
+        "Butuh rekomendasi warna untuk kulit sawo matang"
+      ],
+      "responses": [
+        "Pertimbangkan warna burgundy, beige, dan navy untuk kesan istimewa. #800020, RGB(128, 0, 32)",
+        "Warna putih dan biru muda juga bisa membuat kulit sawo matang tampak lebih cerah. #ADD8E6, RGB(173, 216, 230)",
+        "Hindari warna olive, merah, dan coklat gelap untuk tampilan yang lebih harmonis. #556B2F, RGB(85, 107, 47)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_hitam",
+      "patterns": [
+        "Rekomendasikan warna untuk kulit hitam",
+        "Saya memiliki kulit hitam, sarankan warna",
+        "Warna apa yang cocok untuk kulit hitam?",
+        "Butuh rekomendasi warna untuk kulit hitam"
+      ],
+      "responses": [
+        "Warna cerah seperti kuning dan merah dapat membuat penampilan lebih menonjol. #FFD700, RGB(255, 215, 0)",
+        "Warna-warna tanah yang lembut dan klasik seperti coklat muda dan krem cocok untuk kulit gelap. #F5F5DC, RGB(245, 245, 220)",
+        "Warna putih dan pastel juga bisa membuat kulit hitam tampak lebih cerah. #FFFFFF, RGB(255, 255, 255)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_kuning_langsat",
+      "patterns": [
+        "Rekomendasikan warna untuk kulit kuning langsat",
+        "Saya memiliki kulit kuning langsat, sarankan warna",
+        "Warna apa yang cocok untuk kulit kuning langsat?",
+        "Butuh rekomendasi warna untuk kulit kuning langsat"
+      ],
+      "responses": [
+        "Warna tropis seperti jingga, hijau, merah, kuning, dan biru sangat cocok. #FFA500, RGB(255, 165, 0)",
+        "Warna pastel seperti baby blue dan mint green juga bisa membuat kulit kuning langsat tampak lebih cerah. #98FF98, RGB(152, 255, 152)",
+        "Hindari warna-warna terlalu gelap yang bisa membuat kulit tampak kusam. #8B4513, RGB(139, 69, 19)"
+      ]
+    },
+    {
+      "tag": "sapaan_selamat_datang",
+      "patterns": [
+        "Halo",
+        "Hai",
+        "Selamat pagi",
+        "Selamat siang",
+        "Selamat sore",
+        "Selamat malam",
+        "Apa kabar?",
+        "Permisi"
+      ],
+      "responses": [
+        "Selamat datang! Ada yang bisa saya bantu?",
+        "Halo! Bagaimana saya bisa membantu Anda hari ini?",
+        "Hai! Ada yang bisa saya bantu?",
+        "Selamat datang di layanan kami! Bagaimana saya bisa membantu?"
+      ]
+    },
+    {
+      "tag": "rekomendasi_cat_rumah",
+      "patterns": [
+        "Rekomendasikan cat rumah",
+        "Cat rumah apa yang bagus?",
+        "Saya butuh saran warna cat rumah",
+        "Warna cat rumah apa yang cocok?"
+      ],
+      "responses": [
+        "Untuk tampilan modern, coba warna abu-abu muda. #D3D3D3, RGB(211, 211, 211)",
+        "Warna putih klasik memberikan kesan bersih dan luas. #FFFFFF, RGB(255, 255, 255)",
+        "Warna biru muda bisa memberikan kesan tenang dan sejuk. #ADD8E6, RGB(173, 216, 230)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_cat_ruangan",
+      "patterns": [
+        "Rekomendasikan cat ruangan",
+        "Cat ruangan apa yang bagus?",
+        "Saya butuh saran warna cat ruangan",
+        "Warna cat ruangan apa yang cocok?"
+      ],
+      "responses": [
+        "Warna pastel seperti mint green cocok untuk kamar tidur. #98FF98, RGB(152, 255, 152)",
+        "Warna kuning cerah bisa memberikan energi pada ruang tamu. #FFD700, RGB(255, 215, 0)",
+        "Untuk dapur, warna putih atau biru muda bisa memberikan kesan bersih dan rapi. #FFFFFF, RGB(255, 255, 255)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_cat_mobil",
+      "patterns": [
+        "Rekomendasikan cat mobil",
+        "Cat mobil apa yang bagus?",
+        "Saya butuh saran warna cat mobil",
+        "Warna cat mobil apa yang cocok?"
+      ],
+      "responses": [
+        "Warna hitam memberikan kesan elegan dan mewah. #000000, RGB(0, 0, 0)",
+        "Warna merah memberikan kesan sporty dan berani. #FF0000, RGB(255, 0, 0)",
+        "Warna silver memberikan kesan modern dan bersih. #C0C0C0, RGB(192, 192, 192)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_cat_motor",
+      "patterns": [
+        "Rekomendasikan cat motor",
+        "Cat motor apa yang bagus?",
+        "Saya butuh saran warna cat motor",
+        "Warna cat motor apa yang cocok?"
+      ],
+      "responses": [
+        "Warna matte black memberikan kesan tangguh dan modern. #2E2E2E, RGB(46, 46, 46)",
+        "Warna biru metalik memberikan kesan dinamis dan menarik. #4682B4, RGB(70, 130, 180)",
+        "Warna putih memberikan kesan bersih dan klasik. #FFFFFF, RGB(255, 255, 255)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_cat_furniture",
+      "patterns": [
+        "Rekomendasikan cat furniture",
+        "Cat furniture apa yang bagus?",
+        "Saya butuh saran warna cat furniture",
+        "Warna cat furniture apa yang cocok?"
+      ],
+      "responses": [
+        "Warna putih memberikan kesan bersih dan cocok untuk berbagai gaya. #FFFFFF, RGB(255, 255, 255)",
+        "Warna navy memberikan kesan elegan dan bisa menjadi aksen menarik. #000080, RGB(0, 0, 128)",
+        "Warna pastel seperti peach atau mint green cocok untuk tampilan yang lembut dan modern. #FFE5B4, RGB(255, 229, 180)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_cat_kamar_anak",
+      "patterns": [
+        "Rekomendasikan cat kamar anak",
+        "Cat kamar anak apa yang bagus?",
+        "Saya butuh saran warna cat kamar anak",
+        "Warna cat kamar anak apa yang cocok?"
+      ],
+      "responses": [
+        "Warna pastel seperti biru muda atau pink muda bisa memberikan kesan ceria. #FFC0CB, RGB(255, 192, 203)",
+        "Warna hijau muda memberikan kesan segar dan menyenangkan. #90EE90, RGB(144, 238, 144)",
+        "Warna kuning pastel memberikan kesan hangat dan menyenangkan. #FFFACD, RGB(255, 250, 205)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_cat_kantor",
+      "patterns": [
+        "Rekomendasikan cat kantor",
+        "Cat kantor apa yang bagus?",
+        "Saya butuh saran warna cat kantor",
+        "Warna cat kantor apa yang cocok?"
+      ],
+      "responses": [
+        "Warna abu-abu muda memberikan kesan profesional dan modern. #D3D3D3, RGB(211, 211, 211)",
+        "Warna putih bersih memberikan kesan luas dan terang. #FFFFFF, RGB(255, 255, 255)",
+        "Warna biru tua bisa memberikan kesan fokus dan tenang. #000080, RGB(0, 0, 128)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_cat_dapur",
+      "patterns": [
+        "Rekomendasikan cat dapur",
+        "Cat dapur apa yang bagus?",
+        "Saya butuh saran warna cat dapur",
+        "Warna cat dapur apa yang cocok?"
+      ],
+      "responses": [
+        "Warna putih memberikan kesan bersih dan terang. #FFFFFF, RGB(255, 255, 255)",
+        "Warna hijau muda memberikan kesan segar dan alami. #98FB98, RGB(152, 251, 152)",
+        "Warna kuning cerah bisa memberikan kesan hangat dan mengundang selera makan. #FFD700, RGB(255, 215, 0)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_toko",
+      "patterns": [
+        "Rekomendasikan warna untuk toko",
+        "Warna apa yang cocok untuk toko?",
+        "Saya butuh saran warna cat untuk toko",
+        "Warna cat toko apa yang bagus?"
+      ],
+      "responses": [
+        "Warna merah dapat menarik perhatian dan memberikan kesan energik. #FF0000, RGB(255, 0, 0)",
+        "Warna biru memberikan kesan profesional dan dapat membuat pelanggan merasa tenang. #0000FF, RGB(0, 0, 255)",
+        "Warna hijau memberikan kesan alami dan segar, cocok untuk toko yang menjual produk kesehatan atau makanan. #00FF00, RGB(0, 255, 0)",
+        "Warna kuning memberikan kesan ceria dan mengundang, cocok untuk menarik pelanggan masuk. #FFD700, RGB(255, 215, 0)",
+        "Warna putih memberikan kesan bersih dan modern, cocok untuk berbagai jenis toko. #FFFFFF, RGB(255, 255, 255)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_rambut",
+      "patterns": [
+        "Rekomendasikan warna rambut yang lagi trend",
+        "Warna rambut apa yang lagi trend?",
+        "Saya butuh saran warna rambut yang trend",
+        "Warna rambut apa yang sedang populer?"
+      ],
+      "responses": [
+        "Warna ash blonde memberikan kesan modern dan elegan. #B2BEB5, RGB(178, 190, 181)",
+        "Warna rose gold memberikan kesan unik dan feminin. #E7ACCF, RGB(231, 172, 207)",
+        "Warna balayage coklat karamel memberikan kesan hangat dan alami. #A0522D, RGB(160, 82, 45)",
+        "Warna pastel pink memberikan kesan playful dan edgy. #FFB6C1, RGB(255, 182, 193)",
+        "Warna ombre biru memberikan kesan bold dan trendy. #1E90FF, RGB(30, 144, 255)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_kamar_tidur",
+      "patterns": [
+        "Rekomendasikan warna untuk kamar tidur",
+        "Warna apa yang cocok untuk kamar tidur?",
+        "Saya butuh saran warna untuk kamar tidur",
+        "Warna cat kamar tidur apa yang bagus?"
+      ],
+      "responses": [
+        "Warna biru pastel memberikan kesan tenang dan nyaman untuk kamar tidur. #87CEEB, RGB(135, 206, 235)",
+        "Warna lavender memberikan kesan relaksasi dan menenangkan. #E6E6FA, RGB(230, 230, 250)",
+        "Warna abu-abu lembut memberikan kesan modern dan netral. #DCDCDC, RGB(220, 220, 220)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_ruang_tamu",
+      "patterns": [
+        "Rekomendasikan warna untuk ruang tamu",
+        "Warna apa yang cocok untuk ruang tamu?",
+        "Saya butuh saran warna untuk ruang tamu",
+        "Warna cat ruang tamu apa yang bagus?"
+      ],
+      "responses": [
+        "Warna cream memberikan kesan hangat dan elegan untuk ruang tamu. #FFFDD0, RGB(255, 253, 208)",
+        "Warna taupe memberikan kesan klasik dan cocok dengan berbagai dekorasi. #483C32, RGB(72, 60, 50)",
+        "Warna dusty rose memberikan kesan feminin dan modern. #D4A190, RGB(212, 161, 144)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_kitchen_set",
+      "patterns": [
+        "Rekomendasikan warna untuk kitchen set",
+        "Warna apa yang cocok untuk kitchen set?",
+        "Saya butuh saran warna untuk kitchen set",
+        "Warna kitchen set apa yang bagus?"
+      ],
+      "responses": [
+        "Warna putih memberikan kesan bersih dan modern untuk kitchen set. #FFFFFF, RGB(255, 255, 255)",
+        "Warna birchwood memberikan kesan natural dan hangat. #D2B48C, RGB(210, 180, 140)",
+        "Warna charcoal grey memberikan kesan elegan dan modern. #36454F, RGB(54, 69, 79)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_kamar_mandi",
+      "patterns": [
+        "Rekomendasikan warna untuk kamar mandi",
+        "Warna apa yang cocok untuk kamar mandi?",
+        "Saya butuh saran warna untuk kamar mandi",
+        "Warna cat kamar mandi apa yang bagus?"
+      ],
+      "responses": [
+        "Warna aqua blue memberikan kesan segar dan ceria untuk kamar mandi. #7FFFD4, RGB(127, 255, 212)",
+        "Warna soft grey memberikan kesan modern dan netral. #D3D3D3, RGB(211, 211, 211)",
+        "Warna peach memberikan kesan hangat dan menenangkan. #FFDAB9, RGB(255, 218, 185)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_exterior_rumah",
+      "patterns": [
+        "Rekomendasikan warna untuk eksterior rumah",
+        "Warna apa yang cocok untuk eksterior rumah?",
+        "Saya butuh saran warna untuk eksterior rumah",
+        "Warna cat eksterior rumah apa yang bagus?"
+      ],
+      "responses": [
+        "Warna sage green memberikan kesan alami dan elegan untuk eksterior rumah. #9DC183, RGB(157, 193, 131)",
+        "Warna taupe grey memberikan kesan modern dan netral. #8B8589, RGB(139, 133, 137)",
+        "Warna navy blue memberikan kesan klasik dan kuat. #000080, RGB(0, 0, 128)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_office",
+      "patterns": [
+        "Rekomendasikan warna untuk kantor",
+        "Warna apa yang cocok untuk kantor?",
+        "Saya butuh saran warna untuk kantor",
+        "Warna cat kantor apa yang bagus?"
+      ],
+      "responses": [
+        "Warna biru tua memberikan kesan fokus dan produktif untuk kantor. #003366, RGB(0, 51, 102)",
+        "Warna abu-abu memberikan kesan profesional dan serbaguna. #808080, RGB(128, 128, 128)",
+        "Warna olive green memberikan kesan tenang dan harmonis. #556B2F, RGB(85, 107, 47)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_restoran",
+      "patterns": [
+        "Rekomendasikan warna untuk restoran",
+        "Warna apa yang cocok untuk restoran?",
+        "Saya butuh saran warna untuk restoran",
+        "Warna cat restoran apa yang bagus?"
+      ],
+      "responses": [
+        "Warna merah memberikan kesan hangat dan menarik perhatian untuk restoran. #FF6347, RGB(255, 99, 71)",
+        "Warna kuning memberikan kesan ceria dan menyenangkan. #FFD700, RGB(255, 215, 0)",
+        "Warna biru laut memberikan kesan segar dan santai. #4169E1, RGB(65, 105, 225)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_gym",
+      "patterns": [
+        "Rekomendasikan warna untuk gym",
+        "Warna apa yang cocok untuk gym?",
+        "Saya butuh saran warna untuk gym",
+        "Warna cat gym apa yang bagus?"
+      ],
+      "responses": [
+        "Warna orange memberikan kesan energik dan semangat untuk gym. #FFA500, RGB(255, 165, 0)",
+        "Warna biru memberikan kesan tenang dan fokus. #1E90FF, RGB(30, 144, 255)",
+        "Warna grey memberikan kesan modern dan netral. #808080, RGB(128, 128, 128)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_cafe",
+      "patterns": [
+        "Rekomendasikan warna untuk cafe",
+        "Warna apa yang cocok untuk cafe?",
+        "Saya butuh saran warna untuk cafe",
+        "Warna cat cafe apa yang bagus?"
+      ],
+      "responses": [
+        "Warna cappuccino brown memberikan kesan hangat dan cozy untuk cafe. #6F4E37, RGB(111, 78, 55)",
+        "Warna teal memberikan kesan modern dan fresh. #008080, RGB(0, 128, 128)",
+        "Warna cream memberikan kesan bersih dan elegan. #FFFDD0, RGB(255, 253, 208)"
+      ]
+    },
+    {
+      "tag": "rekomendasi_warna_spaklinik",
+      "patterns": [
+        "Rekomendasikan warna untuk spa/klinik",
+        "Warna apa yang cocok untuk spa/klinik?",
+        "Saya butuh saran warna untuk spa/klinik",
+        "Warna cat spa/klinik apa yang bagus?"
+      ],
+      "responses": [
+        "Warna soft green memberikan kesan menenangkan dan alami untuk spa/klinik. #98FB98, RGB(152, 251, 152)",
+        "Warna lavender memberikan kesan relax dan calm. #E6E6FA, RGB(230, 230, 250)",
+        "Warna peach memberikan kesan hangat dan menyegarkan. #FFDAB9, RGB(255, 218, 185)"
+      ]
+    },
+    {
+      "tag": "terima_kasih",
+      "patterns": [
+        "Terima kasih",
+        "Thanks",
+        "Makasih",
+        "Thank you",
+        "terimakasih"
+      ],
+      "responses": [
+        "Sama-sama! Senang bisa membantu.",
+        "Tidak masalah!",
+        "Tidak perlu terima kasih!",
+        "Senang bisa membantu Anda!",
+        "Senang bisa membantu! Jika Anda membutuhkan sesuatu lagi, jangan ragu untuk bertanya."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/realtime.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h1>Color Detection</h1>
+            <a href="{{ url_for('index') }}" class="button">Back</a>
+        </div>
+        <div class="split-container">
+            <div class="split-pane">
+                <video id="video" width="1000" height="500" autoplay></video>
+                <div class="text-content">
+                    <div class="bold" id="detectedColorLabel">Detected Color</div>
+                    <button id="colorLabel" class="ouput">Colors: N/A</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Move the canvas element outside of the split-pane -->
+    <canvas id="canvas" width="800" height="500"></canvas>
+
+    <script>
+        // Get access to the camera
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+                var video = document.getElementById('video');
+                video.srcObject = stream;
+                video.play();
+            });
+        }
+
+        // Function to capture frame and send to Flask server for color prediction
+        function captureFrame() {
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            var video = document.getElementById('video');
+
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            var dataURL = canvas.toDataURL('image/jpeg');
+
+            fetch('/predict_frame', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ image: dataURL }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('colorLabel').innerText = 'Color: ' + data.predicted_color;
+                document.getElementById('detectedColorLabel').innerText = 'Detected Color';
+                drawBoundingBox(data.predicted_color);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Function to draw bounding box around detected color
+        function drawBoundingBox(detectedColor) {
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+            var data = imageData.data;
+
+            context.strokeStyle = 'red';
+            context.lineWidth = 2;
+
+            // Simple color thresholding to detect object based on the predicted color
+            var colorThreshold = 50;
+            var bounds = { x1: canvas.width, y1: canvas.height, x2: 0, y2: 0 };
+
+            for (var y = 0; y < canvas.height; y++) {
+                for (var x = 0; x < canvas.width; x++) {
+                    var index = (y * canvas.width + x) * 4;
+                    var r = data[index];
+                    var g = data[index + 1];
+                    var b = data[index + 2];
+
+                    // Adjust the color detection condition based on your needs
+                    if (detectedColor === 'red' && r > 200 && g < 100 && b < 100) {
+                        bounds.x1 = Math.min(bounds.x1, x);
+                        bounds.y1 = Math.min(bounds.y1, y);
+                        bounds.x2 = Math.max(bounds.x2, x);
+                        bounds.y2 = Math.max(bounds.y2, y);
+                    }
+                    // Add more conditions for other colors as needed
+                }
+            }
+
+            // Log the bounds for debugging
+            console.log('Bounds:', bounds);
+
+            if (bounds.x2 > bounds.x1 && bounds.y2 > bounds.y1) {
+                context.strokeRect(bounds.x1, bounds.y1, bounds.x2 - bounds.x1, bounds.y2 - bounds.y1);
+            } else {
+                console.log('No object detected with the color:', detectedColor);
+            }
+        }
+
+        // Set interval to capture frame every second
+        setInterval(captureFrame, 1000);
+    </script>
+</body>
+</html>
